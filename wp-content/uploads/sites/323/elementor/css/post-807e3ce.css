@@ -63,7 +63,7 @@
   > .elementor-widget-wrap
   > .elementor-motion-effects-container
   > .elementor-motion-effects-layer {
-  background-color: var(--e-global-color-primary);
+  background: linear-gradient(90deg, #F78D20 0%, #C5282C 100%);
 }
 .elementor-807
   .elementor-element.elementor-element-8c0250e
