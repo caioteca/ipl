@@ -1,0 +1,7 @@
+# Forçar HTTPS - Redirecionar HTTP para HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Certifique-se de que o SSL está habilitado
+SSLEngine on
