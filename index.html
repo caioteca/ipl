@@ -2259,40 +2259,7 @@
 				</div>
 			</section>
 			<!--- Hero -->
-			<button onclick="changeLanguage('en')">English</button>
-			<button onclick="changeLanguage('pt')">Português</button>
-
-			<script>
-				// Inicializando o i18next
-				i18next.init({
-					lng: 'en', // Idioma padrão
-					resources: {
-						en: {
-							translation: {
-								welcome: 'Welcome to our website!',
-							},
-						},
-						pt: {
-							translation: {
-								welcome: 'Bem-vindo ao nosso site!',
-							},
-						},
-					},
-				}).then(() => {
-					// Atualiza o texto na página com base no idioma
-					updateContent();
-				});
-
-				function updateContent() {
-					document.getElementById('welcome').innerText = i18next.t('welcome');
-				}
-
-				function changeLanguage(lang) {
-					i18next.changeLanguage(lang).then(() => {
-						updateContent();
-					});
-				}
-			</script>
+			
 
 			<section
 				class="elementor-section elementor-top-section elementor-element elementor-element-33e9e326 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
