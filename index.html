@@ -18,6 +18,7 @@
 	<link rel="alternate" type="application/rss+xml" title="Petrol &raquo; Feed" href="feed/index.html" />
 	<link rel="alternate" type="application/rss+xml" title="Petrol &raquo; Comments Feed"
 		href="comments/feed/index.html" />
+	<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
 	<script>
 		const languageSelector = document.getElementById('language');
 		const translatableElements = document.querySelectorAll('[data-lang-pt]');
@@ -555,9 +556,10 @@
 			font-size: 1.5em;
 			line-height: 1.6;
 		}
+
 		.language-selector {
-      margin: 20px;
-    }
+			margin: 20px;
+		}
 	</style>
 	<link rel='stylesheet' id='allow-webp-image-css'
 		href='wp-content/plugins/allow-webp-image/public/css/allow-webp-image-publicf269.css?ver=1.0.1' media='all' />
@@ -1910,10 +1912,12 @@
 												vertical-align: middle;
 												display: inline-block
 											}
-										</style> <img width="800" height="267"
-											src="wp-content/uploads/sites/323/2023/01/petrol-logo1-e1672720046215.svg"
-											class="attachment-full size-full wp-image-261" alt="" decoding="async" sizes="(max-width: 9
-											00px) 100vw, 800px" />
+										</style>
+										<a href="index.html" style="width: 100%;">
+											<img width="800" height="267"
+												src="wp-content/uploads/sites/323/2023/01/petrol-logo1-e1672720046215.svg"
+												class="attachment-full size-full wp-image-261" alt="" decoding="async" sizes="(max-width: 9
+											00px) 100vw, 800px" /></a>
 									</div>
 								</div>
 							</div>
@@ -1957,7 +1961,7 @@
 													</ul>
 												</div>
 												<div class="jkit-nav-identity-panel">
-													<div class="jkit-nav-site-title"><a href="#" class="jkit-nav-logo"><img
+													<div class="jkit-nav-site-title"><a href="index.html" class="jkit-nav-logo"><img
 																src="wp-content/uploads/sites/323/2023/01/petrol-logo1-e1672720046215.png"></a></div>
 													<button class="jkit-close-menu"><i aria-hidden="true"
 															class="jki jki-times-solid"></i></button>
@@ -2255,6 +2259,41 @@
 				</div>
 			</section>
 			<!--- Hero -->
+			<button onclick="changeLanguage('en')">English</button>
+			<button onclick="changeLanguage('pt')">Português</button>
+
+			<script>
+				// Inicializando o i18next
+				i18next.init({
+					lng: 'en', // Idioma padrão
+					resources: {
+						en: {
+							translation: {
+								welcome: 'Welcome to our website!',
+							},
+						},
+						pt: {
+							translation: {
+								welcome: 'Bem-vindo ao nosso site!',
+							},
+						},
+					},
+				}).then(() => {
+					// Atualiza o texto na página com base no idioma
+					updateContent();
+				});
+
+				function updateContent() {
+					document.getElementById('welcome').innerText = i18next.t('welcome');
+				}
+
+				function changeLanguage(lang) {
+					i18next.changeLanguage(lang).then(() => {
+						updateContent();
+					});
+				}
+			</script>
+
 			<section
 				class="elementor-section elementor-top-section elementor-element elementor-element-33e9e326 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
 				data-id="33e9e326" data-element_type="section">
@@ -2856,13 +2895,12 @@
 															</div>
 															<div class="icon-box icon-box-body" style="color: #fff;">
 																<h2 class="title">Mãos de Obras Profissional</h2>
-																<p class="icon-box-description">Area de eletricidade, mecânica, instrumentação,solddura,
-																	admnistrativos e outros..
+																<p class="icon-box-description">Na IPL, fornecemos mão de obra altamente qualificada para atender às necessidades específicas de projetos offshore e onshore. Nossa equipa é composta por profissionais experientes e treinados para atuar com excelência em diferentes áreas industriais.
 
 																</p>
 																<div class="icon-box-button ">
 																	<div class="btn-wrapper icon-position-after">
-																		<a href="#" class="icon-box-link">Saiba mais<i aria-hidden="true"
+																		<a href="service-details/maos-de-obras-profissional.html" class="icon-box-link">Saiba mais<i aria-hidden="true"
 																				class="jki jki-right-arrow1-light"></i></a>
 																	</div>
 																</div>
@@ -2891,12 +2929,14 @@
 																</div>
 															</div>
 															<div class="icon-box icon-box-body">
-																<h2 class="title">Manutenção Técnica</h2>
-																<p class="icon-box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+																<h2 class="title">Pintura e soldadura industrial</h2>
+																<p class="icon-box-description">A IPL, oferece serviços de soldadura industrial de alta
+																	qualidade, projetados para atender às exigências rigorosas dos setores offshore e
+																	onshore.
 																</p>
 																<div class="icon-box-button ">
 																	<div class="btn-wrapper icon-position-after">
-																		<a href="#" class="icon-box-link">Saiba mais<i aria-hidden="true"
+																		<a href="service-details/pintura-industrial.html" class="icon-box-link">Saiba mais<i aria-hidden="true"
 																				class="jki jki-right-arrow1-light"></i></a>
 																	</div>
 																</div>
@@ -2932,11 +2972,12 @@
 															</div>
 															<div class="icon-box icon-box-body">
 																<h2 class="title">Gruas - Gruas geradores</h2>
-																<p class="icon-box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-																</p>
+																<p class="icon-box-description">Na IPL, fornecemos soluções confiáveis em gruas e
+																	geradores para operações industriais, tanto em ambientes offshore quanto onshore.
+																	Oferecemos uma ampla gama de opções para atender a diferentes necessidades.</p>
 																<div class="icon-box-button ">
 																	<div class="btn-wrapper icon-position-after">
-																		<a href="#" class="icon-box-link">Saiba mais<i aria-hidden="true"
+																		<a href="service-details/gruas-e-geradores.html" class="icon-box-link">Saiba mais<i aria-hidden="true"
 																				class="jki jki-right-arrow1-light"></i></a>
 																	</div>
 																</div>
@@ -2966,11 +3007,13 @@
 															</div>
 															<div class="icon-box icon-box-body">
 																<h2 class="title"> ⁠Andaimes</h2>
-																<p class="icon-box-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+																<p class="icon-box-description">Na IPL, oferecemos soluções completas em andaimes para
+																	projetos offshore e onshore, garantindo acesso seguro e eficiente a áreas de difícil
+																	alcance em instalações industriais.
 																</p>
 																<div class="icon-box-button ">
 																	<div class="btn-wrapper icon-position-after">
-																		<a href="#" class="icon-box-link">Saiba mais<i aria-hidden="true"
+																		<a href="service-details/andaimes.html" class="icon-box-link">Saiba mais<i aria-hidden="true"
 																				class="jki jki-right-arrow1-light"></i></a>
 																	</div>
 																</div>
@@ -2983,33 +3026,37 @@
 										</div>
 									</div>
 									<div
-										class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4ca61a7"
-										data-id="4ca61a7" data-element_type="column"
+										class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-daf44db"
+										data-id="daf44db" data-element_type="column"
 										data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 										<div class="elementor-widget-wrap elementor-element-populated">
-											<div class="elementor-background-overlay"></div>
 											<div
-												class="elementor-element elementor-element-450ed1d elementor-widget elementor-widget-jkit_heading"
-												data-id="450ed1d" data-element_type="widget" data-widget_type="jkit_heading.default">
+												class="elementor-element elementor-element-4330481 jkit-equal-height-disable elementor-widget elementor-widget-jkit_icon_box"
+												data-id="4330481" data-element_type="widget" data-widget_type="jkit_icon_box.default">
 												<div class="elementor-widget-container">
 													<div
-														class="jeg-elementor-kit jkit-heading  align-center align-tablet- align-mobile- jeg_module_159_22_6756cb6e3874c">
-														<div class="heading-section-title  display-inline-block">
-															<h2 class="heading-title">Limpeza geral e desinfestação</h2>
-														</div>
-														<div class="heading-section-description">
-															<p>Lorem ipsum dolor sit amet.</p>
+														class="jeg-elementor-kit jkit-icon-box icon-position- elementor-animation-float jeg_module_159_20_6756cb6e34871">
+														<div class="jkit-icon-box-wrapper hover-from-left">
+															<div class="icon-box icon-box-header elementor-animation-">
+																<div class="icon style-color"><i aria-hidden="true" class="jki jki-barrier-light"></i>
+																</div>
+															</div>
+															<div class="icon-box icon-box-body">
+																<h2 class="title">
+																	Limpeza Geral e Desinfestação</h2>
+																<p class="icon-box-description">Na IPL, oferecemos serviços especializados de limpeza
+																	geral e desinfestação para ambientes offshore e onshore.
+																</p>
+																<div class="icon-box-button ">
+																	<div class="btn-wrapper icon-position-after">
+																		<a href="service-details/limpeza-geral-e-desinfestacao.html" class="icon-box-link">Saiba mais<i aria-hidden="true"
+																				class="jki jki-right-arrow1-light"></i></a>
+																	</div>
+																</div>
+															</div>
+
 														</div>
 													</div>
-												</div>
-											</div>
-											<div
-												class="elementor-element elementor-element-04061d7 elementor-widget__width-auto elementor-widget elementor-widget-jkit_button"
-												data-id="04061d7" data-element_type="widget" data-widget_type="jkit_button.default">
-												<div class="elementor-widget-container">
-													<div
-														class="jeg-elementor-kit jkit-button  icon-position-before jeg_module_159_23_6756cb6e39942">
-														<a href="#" class="jkit-button-wrapper">Todos serviços</a></div>
 												</div>
 											</div>
 										</div>
@@ -3272,7 +3319,7 @@
 
 
 
-		
+
 			<section
 				class="elementor-section elementor-top-section elementor-element elementor-element-4e7675d0 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
 				data-id="4e7675d0" data-element_type="section">
@@ -4570,15 +4617,7 @@
 													<div class="elementor-widget-container">
 														<ul class="elementor-icon-list-items">
 															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
-
-																	<span class="elementor-icon-list-icon">
-																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Manutenção Técnica</span>
-																</a>
-															</li>
-															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
+																<a href="service-details/gruas-e-geradores.html">
 
 																	<span class="elementor-icon-list-icon">
 																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
@@ -4586,16 +4625,15 @@
 																</a>
 															</li>
 															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
+																<a href="service-details/andaimes.html">
 
 																	<span class="elementor-icon-list-icon">
 																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">⁠Andaimes
-																	</span>
+																	<span class="elementor-icon-list-text">⁠Andaimes</span>
 																</a>
 															</li>
 															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
+																<a href="service-details/limpeza-geral-e-desinfestacao.html">
 
 																	<span class="elementor-icon-list-icon">
 																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
@@ -4603,19 +4641,19 @@
 																</a>
 															</li>
 															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
+																<a href="service-details/pintura-industrial.html">
 
 																	<span class="elementor-icon-list-icon">
 																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Pintura e soldadura industrial
+																	<span class="elementor-icon-list-text">Pintura
 																	</span>
 																</a>
 															</li>
 															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
+																<a href="service-details/soldadura-industrial.html">
 																	<span class="elementor-icon-list-icon">
 																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Formacao de Seguraca no Trabalho</span>
+																	<span class="elementor-icon-list-text">Soldadura Industrial</span>
 																</a>
 															</li>
 														</ul>
@@ -4649,22 +4687,7 @@
 													data-id="f895e5e" data-element_type="widget" data-widget_type="icon-list.default">
 													<div class="elementor-widget-container">
 														<ul class="elementor-icon-list-items">
-															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
 
-																	<span class="elementor-icon-list-icon">
-																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Perguntas frequentes</span>
-																</a>
-															</li>
-															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
-
-																	<span class="elementor-icon-list-icon">
-																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Isenção de responsabilidade</span>
-																</a>
-															</li>
 															<li class="elementor-icon-list-item">
 																<a href="contact/index.html">
 
@@ -4681,22 +4704,7 @@
 																	<span class="elementor-icon-list-text">Contato</span>
 																</a>
 															</li>
-															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
 
-																	<span class="elementor-icon-list-icon">
-																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Política de Privacidade</span>
-																</a>
-															</li>
-															<li class="elementor-icon-list-item">
-																<a href="contact/index.html">
-
-																	<span class="elementor-icon-list-icon">
-																		<i aria-hidden="true" class="fas fa-chevron-right"></i> </span>
-																	<span class="elementor-icon-list-text">Termos e Condições</span>
-																</a>
-															</li>
 														</ul>
 													</div>
 												</div>
@@ -4744,7 +4752,8 @@
 															<div class="elementor-icon-box-content">
 																<h3 class="elementor-icon-box-title">
 																	<span>
-																		Mais informações </span>
+																		Mais informações
+																	</span>
 																</h3>
 																<p class="elementor-icon-box-description">
 																	(+244) 999 999 999 </p>
