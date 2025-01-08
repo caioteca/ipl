@@ -3573,6 +3573,7 @@ ul.elementor-icon-list-items.elementor-inline-items .elementor-inline-item {
 .elementor-edit-area .elementor-element ul.elementor-icon-list-items,
 .elementor .elementor-element ul.elementor-icon-list-items {
   padding: 0;
+  list-style: none;
 }
 .e--ua-appleWebkit.rtl {
   --flex-right: flex-start;
